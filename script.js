@@ -48,7 +48,7 @@ function getWeatherData () {
 function showWeatherData (data){
 
 
-    let {humidity, pressure, sunrise, sunset, wind_speed, temp} = data.current;
+    let {humidity, pressure, sunrise, sunset, wind_speed, temp, visibility} = data.current;
     let {description, icon} = data.current.weather[0];  
     timezone.innerHTML = data.timezone;
 
@@ -59,7 +59,7 @@ function showWeatherData (data){
         <div class="pro">Humidity</div>
         <div class="para">${humidity}%</div>
     </div>
-    <div class="weather-item">
+    <div class="weather-item" id="no-bor">
         <div class="pro">Pressure</div>
         <div class="para">${pressure} mb</div>
     </div>
@@ -68,13 +68,18 @@ function showWeatherData (data){
         <div class="para">${wind_speed} mph</div>
     </div>
 
-    <div class="weather-item">
+    <div class="weather-item" id="no-bor">
         <div class="pro">Sunrise</div>
         <div class="para">${window.moment(sunrise * 1000).format('HH:mm a')}</div>
     </div>
-    <div class="weather-item no-bor">
+    <div class="weather-item">
         <div class="pro">Sunset</div>
         <div class="para">${window.moment(sunset*1000).format('HH:mm a')}</div>
+    </div>
+    
+    <div class="weather-item no-bor" id="no-bor">
+        <div class="pro">Visibility</div>
+        <div class="para">${visibility/1000} Km</div>
     </div>
     
     

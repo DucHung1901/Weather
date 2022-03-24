@@ -5,6 +5,9 @@
     margin:0;
     padding:0;
 }
+body{
+    background-color: #DEE6EF;
+}
 
 .header{
     background:url(./img/bg.jpg);
@@ -16,7 +19,7 @@
     height: 100vh;
 }
 .header-info{
-    padding: 25px 90px 0 90px;
+    padding: 25px 50px 0 50px;
 }
 .current-info{
     display: flex;
@@ -73,16 +76,16 @@
 }
 
 hr{
-    max-width: 1425px;
+    max-width: 1440px;
     margin: auto;
-    width: 87%;
+    width: 86%;
 }
 .info{
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    padding: 40px 0;
+    padding: 25px 0;
 }
 .others{
     display: flex;
@@ -90,14 +93,15 @@ hr{
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 1500px;
 }
 
 .weather-item{
     display: flex;
-    flex-basis: 19%;
+    flex-basis: 16%;
     flex-direction: column;
     min-width: 100px;
-    width: 300px;
+    width: 280px;
     text-align: center;
     border-right: 1px solid #eee;
 }
@@ -124,10 +128,10 @@ hr{
     font-size: 35px;
     line-height: 70px;
     margin-left: 25px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .future-forecast{
-    padding: 25px;
+    padding: 15px;
     display: flex;
     color: white;
     width: 100%;
@@ -140,11 +144,14 @@ hr{
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    padding:15px;
+    padding: 15px 15px 15px 0;
     margin-right: 10px;
     border-radius: 10px;
     background: #5488BC
 }
+/* .future-forecast .today .w-icon{
+    width: 100%;
+} */
 
 .future-forecast .today .day{
     padding: 5px 15px;
@@ -192,6 +199,15 @@ hr{
     font-size: 12px;
 }
 
+.footer{
+    font-size: 25px;
+}
+.creater{
+    margin: 84px 0;
+    text-align: center;
+}
+
+
 @media only screen and (max-width: 1400px){
     .future-forecast{
         justify-content: start;
@@ -199,7 +215,17 @@ hr{
         overflow-x: scroll;
     }
     .container{
-        padding: 20px;
+        padding: 25px;
+    }
+    .title {
+        line-height: 50px;
+        margin-top: 5px;
+    }
+    .info {
+        padding: 20px 0;
+    }
+    .footer{
+        font-size: 1.2rem;
     }
 }
 
@@ -224,15 +250,20 @@ hr{
         font-size: 22px;
     }
     .info{
-        padding: 30px 0;
+        padding: 20px 0;
     }
     .title{
         font-size: 25px;
-        margin-top: 0px;
+        margin-top: 10px;
+        line-height: 50px;
     }
     .place-container .country {
         font-weight: 500;
     }
+    .footer{
+        font-size: 1rem;
+    }
+
 }
 
 @media only screen and (max-width: 600px){
@@ -244,6 +275,7 @@ hr{
     }
     .date-container .time {
         font-size: 25px;
+        text-align: center;
     }
     .date-container #am-pm{
         font-size: 18px;
@@ -257,11 +289,19 @@ hr{
     .title {
         font-size: 20px;
     }
-    .others {
-        justify-content: start;
-        align-items: none;
-        flex-wrap: nowrap;
-        overflow-x: scroll;
+    .place-container{
+        display: none;
+    }
+    .current-info {
+        display: flex;
+        justify-content: space-between;
+    }
+    .weather-item {
+        flex-basis: 50%;
+        margin: 7px 0;
+    }
+    #no-bor{
+        border: none;
     }
 }
 
