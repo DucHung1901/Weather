@@ -30,6 +30,7 @@ setInterval(() => {
     const date = time.getDate();
     const day = time.getDay();
     const hour = time.getHours();
+//     nếu số giờ quy đổi >=13 thì lấy giờ đó chia lấy dư với 12, còn nếu giờ <13 thì lấy giờ đó
     const hoursIn12HrFormat = hour >= 13 ? hour %12: hour
     const minutes = time.getMinutes();
     const ampm = hour >=12 ? 'PM' : 'AM'
