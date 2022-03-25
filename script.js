@@ -36,6 +36,7 @@ setInterval(() => {
     const ampm = hour >=12 ? 'PM' : 'AM'
 
     // tính toán thời gian
+//     nếu giờ tính toán được < 10 thì ta để dạng 01, 02,..., còn >=10 thì ta giữ nguyên giờ tìm được. Tương tự với phút
     timeEl.innerHTML = (hoursIn12HrFormat < 10? '0'+hoursIn12HrFormat : hoursIn12HrFormat) + ':' + (minutes < 10? '0'+minutes: minutes)+ ' ' + `<span id="am-pm">${ampm}</span>`
 
     dateEl.innerHTML = days[day] + ', ' + date+ ' ' + months[month]
