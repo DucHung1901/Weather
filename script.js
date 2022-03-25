@@ -1,3 +1,12 @@
+// const let là khai báo dữ liệu
+// lấy nội dung:    let content = node.innerHTML;
+// Gán nội dung:    node.innerHTML = newContent;
+// newContent chính là nội dung bạn muốn gán vào node
+// node chính là đối tượng cần lấy hoặc cần gán nội dung
+
+
+
+
 const timeEl = document.getElementById('time');
 const dateEl = document.getElementById('date');
 const currentWeatherItemsEl = document.getElementById('current-weather-items');
@@ -13,9 +22,11 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 
 const API_KEY ='49cc8c821cd2aff9af04c9f98c36eb74';
 
+
+// sau 1000ms thời gian sẽ được cập nhật setInterval: sau ...thời gian thì sẽ lặp lại các phép tính
 setInterval(() => {
     const time = new Date();
-    const month = time.getMonth();
+    const month = time.getMonth();    
     const date = time.getDate();
     const day = time.getDay();
     const hour = time.getHours();
@@ -30,14 +41,15 @@ setInterval(() => {
 
 }, 1000);
 
+
 getWeatherData()
 function getWeatherData () {
     navigator.geolocation.getCurrentPosition((success) => {
         
         let {latitude, longitude } = success.coords;
-
+        // gọi API
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data => {
-
+        // / kiểm tra / xem giá trị của data
         console.log(data)
         showWeatherData(data);
         })
@@ -50,10 +62,12 @@ function showWeatherData (data){
 
     let {humidity, pressure, sunrise, sunset, wind_speed, temp, visibility} = data.current;
     let {description, icon} = data.current.weather[0];  
+    // truyền dữ liệu của timezone từ API 
     timezone.innerHTML = data.timezone;
-
+    // tương tự, lấy kinh tuyến, vĩ tuyến của toạ độ
     countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'
 
+    // ${humidity} sử dụng sữ liệu đã lấy về từ let{humidity}=data.current ở trên, tương tự cho các pressure,...
     currentWeatherItemsEl.innerHTML = 
     `<div class="weather-item">
         <div class="pro">Humidity</div>
@@ -84,6 +98,7 @@ function showWeatherData (data){
     
     
     `;
+
     currentTempMainE1.innerHTML =
     `
     <div>
@@ -121,7 +136,5 @@ function showWeatherData (data){
         }
     })
     
-
-
     weatherForecastEl.innerHTML = otherDayForcast;
 }
